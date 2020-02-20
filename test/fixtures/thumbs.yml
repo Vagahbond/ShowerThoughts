@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  direction: false
+  user: one
+  showerthought: one
+
+two:
+  direction: false
+  user: two
+  showerthought: two

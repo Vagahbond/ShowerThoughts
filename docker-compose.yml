@@ -1,6 +1,7 @@
 version: '3'
 services:
   db:
+    read_only: false
     image: postgres
     volumes:
       - ./DB:/var/lib/postgresql/data
@@ -8,7 +9,7 @@ services:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: mysecretpassword
   api:
-    build: .
+    read_only: false
     image: yfirroloni/showerthoughts  # goes to my user DockerHub registry
     volumes:
       - .:/myapp
@@ -16,5 +17,4 @@ services:
       - "3000:3000"
     depends_on:
       - db
-    tty: true
-    stdin_open: true
+
