@@ -1,4 +1,4 @@
-module APi
+module Api
   module  V1
     class ThumbsController < ApplicationController
       before_action :set_thumb, only: [:show, :update, :destroy]
