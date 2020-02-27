@@ -35,4 +35,13 @@ class ShowerthoughtsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response 204
   end
+
+  test "should_return_showerthought_for_comment" do
+    user = User.create(username: Faker::Lorem.name)
+    showerthought = Showerthought.create(content: Faker::Lorem.sentence, context: Faker::Lorem.sentences, user:user)
+    comment = Comment.create(content: Faker::Lorem.sentences, user: user, showerthought: showerthought)
+    get '/showerthought/for_comment/1'
+    assert_response 200
+    assert_equal(comment, @response)
+  end
 end
