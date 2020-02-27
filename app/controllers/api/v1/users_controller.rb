@@ -35,15 +35,42 @@ module Api
         end
       end
 
-      # DELETE /users/1
+      # DELETE /users/1/destroy
       def destroy
-        @user.destroy
+
+        @user.delete()
+      end
+
+      # GET comments/:id/user
+      def user_comment
+        if Comment.exists?(id: params[:id])
+          com = Comment.find_by_id(params[:id])
+          @user = User.find_by_id(com.user_id)
+          render json: @user
+        else
+            redirect_to "/api/v1/comments"
+        end
+      end
+
+      # GET comments/:id/user
+      def user_showerthoughts
+        if Showerthought.exists?(id: params[:id])
+          sho = Showerthought.find_by_id(params[:id])
+          @user = User.find_by_id(sho.user_id)
+          render json: @user
+        else
+          redirect_to "/api/v1/showerthoughts"
+        end
       end
 
       private
       # Use callbacks to share common setup or constraints between actions.
       def set_user
-        @user = User.find(params[:id])
+        if User.exists?(id: params[:id])
+          @user = User.find(params[:id])
+        else
+          redirect_to "/api/v1/users"
+        end
       end
 
       # Only allow a trusted parameter "white list" through.
