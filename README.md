@@ -3,9 +3,70 @@ The aim of this API project is for a group of learning developers to learn how t
 Therefor, it has a closed set of contributors that all have the same level. 
 # Usage
 
-```
-Not set yet
-```
+get all the showerthoughts
+
+``get 'showerthoughts/'``
+<br><br>
+
+get a showerthought for the specified ID
+
+``get 'showerthoughts/:id'``
+<br><br>
+
+Get the :amount most popular showerthoughts
+
+``get 'showerthoughts/most_popular/:amount'``
+<br><br>
+
+Get the :amount most comment showerthoughts
+
+``get 'showerthoughts/most_commented/:amount'``
+<br><br>
+
+Get the number of recorded showerthoughts
+
+``get 'showerthoughts/count'``
+<br><br>
+
+Get the showerthought corresponding to a specified comment
+
+``get 'showerthoughts/by_comment/:comment_id'``
+<br><br>
+
+Get the showerthoughts for the specified user
+
+``get 'showerthoughts/by_user/:user_id'``
+<br><br>
+
+get all the showerthoughts having the specified tag
+
+``get 'showerthoughts/by_tag/:tag'``
+<br><br>
+
+Create a showerthought taking a showerthought json object as argument 
+
+``post 'showerthoughts'``
+<br><br>
+
+Tag a showerthought with a json specified tag.
+
+``post 'showerthoughts/tag'``
+<br><br>
+
+Delete specified showerthought
+
+``delete 'showerthoughts/:id'``
+<br><br>
+
+Get a showerthought for a specified user (to fix)
+
+``get '/showerthoughts/:id/user'``
+<br><br>
+
+Get a the author of a specified (showerthought)
+
+``get '/comments/:id/user'``
+<br><br>
 
 # Contributing
 Contributing is only allowed to the group's developers. 
