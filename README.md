@@ -136,5 +136,17 @@ Steps to download the repository and run the app :
 
 The project has been set up using RubyMine so this setup is not guaranteed to work with other IDEs.
 
+## Deploy with heroku
+[Getting Started on Heroku with Rails](https://devcenter.heroku.com/articles/getting-started-with-rails5)
+
+### Resume
+ * Once installed, use heroku login.
+ * Move into your application directory.
+ * Make sure you are in the directory that contains your Rails app, then create an app on Heroku.
+ * You can verify that the remote was added to your project.
+ * Deploy your code with git in master branch.
+ * If you are using the database in your application, you need to manually migrate the database.
+ * We can now visit the app in our browser with heroku open.
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
