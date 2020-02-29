@@ -1,7 +1,7 @@
 module Api
   module V1
     class CommentsController < ApplicationController
-      before_action :set_comment, only: [:show, :update, :destroy]
+      before_action :set_comment, only: %i[show destroy]
 
       # GET /comments
       def index
@@ -15,21 +15,22 @@ module Api
         render json: @comment
       end
 
+      # GET /comment/by_showerthought/1
+      def by_showerthought
+        render json: Comment.find_by_showerthought_id(params[:showerthought_id])
+      end
+
+      # GET /comment/by_user/1
+      def by_user
+        render json: Comment.find_by_user_id(params[:user_id])
+      end
+
       # POST /comments
       def create
         @comment = Comment.new(comment_params)
 
         if @comment.save
           render json: @comment, status: :created, location: @comment
-        else
-          render json: @comment.errors, status: :unprocessable_entity
-        end
-      end
-
-      # PATCH/PUT /comments/1
-      def update
-        if @comment.update(comment_params)
-          render json: @comment
         else
           render json: @comment.errors, status: :unprocessable_entity
         end
